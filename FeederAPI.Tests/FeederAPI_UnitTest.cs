@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace FeederAPI.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class FeederAPI_UnitTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod_01()
         {
         }
     }
