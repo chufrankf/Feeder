@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using FeederAPI.Helpers;
+using FCClassLib;
+using System.Threading.Tasks;
 
 namespace FeederAPI.Controllers
 {
@@ -16,9 +19,21 @@ namespace FeederAPI.Controllers
         }
 
         // GET: api/Location/5
-        public string Get(int id)
+        public async Task<string> Get(int id)
         {
-            return "value";
+            // NOTE: The following few lines are temporary so that I can test the
+            //       get with the following parameters
+            Dictionary<string, string> parameters = new Dictionary<string, string>()
+            {
+                {"location", "45.4868580,-122.6371730" }
+                ,{"key","AIzaSyDWia1aT60nJIwxDje1yU4T0ICahRK8B7A"}
+                ,{"radius","50000"}
+                ,{"keyword","chinese" }
+            };
+
+            var value = await ReadLinkHelper.ReadNearbyRestaurants(parameters);
+
+            return value.ToString();
         }
 
         // POST: api/Location
